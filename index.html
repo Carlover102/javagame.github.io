@@ -197,6 +197,16 @@
         this.isLocked = false;
         this.el.addEventListener("click", this, false);
       }
+      GameSquare.prototype.handleEvent = function(e) {
+        switch (e.type) {
+          case "click":
+            if (this.isOpen || this.isLocked) {
+              return;
+            }
+            this.isOpen = true;
+            this.el.classList.add('flip');
+        }
+      }
 
     </script>
   </body>
